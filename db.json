@@ -1,6 +1,21 @@
 {
   "users": [
-    {"id": 1, "name": "Myra"}
+    {
+      "id": 1,
+      "name": "Myra"
+    },
+    {
+      "name": "Miss Cory Bahringer",
+      "id": 2
+    },
+    {
+      "name": "Julie Mann",
+      "id": 3
+    },
+    {
+      "name": "Monica Schultz",
+      "id": 4
+    }
   ],
   "albums": [],
   "photos": []
