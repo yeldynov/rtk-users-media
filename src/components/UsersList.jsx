@@ -1,23 +1,37 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUsers, addUser } from '../store';
 import Button from './Button';
 import Skeleton from './Skeleton';
 
 function UsersList() {
+  const [isLoadingUsers, setIsLoadingUsers] = useState(false);
+  const [loadingUsersError, setLoadingUsersError] = useState(null);
+  const [isCreatingUser, setIsCreatingUser] = useState(false);
+  const [creatingUserError, setCreatingUserError] = useState(null);
+
   const dispatch = useDispatch();
-  const { data, isLoading, error } = useSelector((state) => state.users); // {data: [], isLoading: false, error: null}
+  const { data } = useSelector((state) => state.users); // {data: [], isLoading: false, error: null}
 
   useEffect(() => {
-    dispatch(fetchUsers());
-  }, []);
+    setIsLoadingUsers(true);
+    dispatch(fetchUsers())
+      .unwrap() // unwrap default behavior
+      .then(() => {}) // empty, can be removed
+      .catch((err) => setLoadingUsersError(err))
+      .finally(() => setIsLoadingUsers(false));
+  }, [dispatch]);
 
   const handleUserAdd = () => {
-    dispatch(addUser());
+    setIsCreatingUser(true);
+    dispatch(addUser())
+      .unwrap() // .then() is empty and removed
+      .catch((err) => setCreatingUserError(err))
+      .finally(() => setIsCreatingUser(false));
   };
 
-  if (isLoading) return <Skeleton times={6} className='h-10 w-full' />;
-  if (error) return <div>Error Fetching data...</div>;
+  if (isLoadingUsers) return <Skeleton times={6} className='h-10 w-full' />;
+  if (loadingUsersError) return <div>Error Fetching data...</div>;
 
   const renderedUsers = data.map((user) => (
     <div className='mb-2 border rounded' key={user.id}>
@@ -31,7 +45,14 @@ function UsersList() {
     <div>
       <div className='flex flex-row justify-between m-3'>
         <h1 className='m-2 text-xl'>Users</h1>
-        <Button onClick={handleUserAdd}>+ Add User</Button>
+        {isCreatingUser ? (
+          'Creating User...'
+        ) : (
+          <Button primary onClick={handleUserAdd}>
+            + Add User
+          </Button>
+        )}
+        {creatingUserError && 'Error creating user'}
       </div>
       {renderedUsers}
     </div>
