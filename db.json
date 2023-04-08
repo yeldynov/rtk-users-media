@@ -1,20 +1,24 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Myra"
-    },
-    {
       "name": "Miss Cory Bahringer",
       "id": 2
     },
     {
-      "name": "Julie Mann",
-      "id": 3
-    },
-    {
       "name": "Jordan Keeling",
       "id": 4
+    },
+    {
+      "name": "Joanna Daniel",
+      "id": 6
+    },
+    {
+      "name": "Janie Cole",
+      "id": 7
+    },
+    {
+      "name": "Keith Lindgren",
+      "id": 8
     }
   ],
   "albums": [],
