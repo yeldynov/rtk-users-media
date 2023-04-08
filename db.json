@@ -1,6 +1,10 @@
 {
   "users": [
     {
+      "name": "Myra",
+      "id": 1
+    },
+    {
       "name": "Miss Cory Bahringer",
       "id": 2
     },
@@ -15,12 +19,14 @@
     {
       "name": "Janie Cole",
       "id": 7
-    },
-    {
-      "name": "Keith Lindgren",
-      "id": 8
     }
   ],
-  "albums": [],
+  "albums": [
+    {
+      "id": 10,
+      "title": "Hiking Trip",
+      "userId": 1
+    }
+  ],
   "photos": []
 }
