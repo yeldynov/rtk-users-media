@@ -26,6 +26,31 @@
       "id": 10,
       "title": "Hiking Trip",
       "userId": 1
+    },
+    {
+      "userId": 1,
+      "title": "Handcrafted Metal Sausages",
+      "id": 11
+    },
+    {
+      "userId": 2,
+      "title": "Practical Frozen Pants",
+      "id": 15
+    },
+    {
+      "userId": 2,
+      "title": "Recycled Fresh Bacon",
+      "id": 16
+    },
+    {
+      "userId": 1,
+      "title": "Fantastic Metal Car",
+      "id": 17
+    },
+    {
+      "userId": 4,
+      "title": "Practical Granite Ball",
+      "id": 18
     }
   ],
   "photos": []
